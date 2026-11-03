@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
 
-/** Implementação construída incrementalmente pelos ciclos TDD. */
 public class CalculadoraDescontoTDD {
     private static final BigDecimal LIMITE_500 = new BigDecimal("500.00");
     private static final BigDecimal LIMITE_1000 = new BigDecimal("1000.00");
