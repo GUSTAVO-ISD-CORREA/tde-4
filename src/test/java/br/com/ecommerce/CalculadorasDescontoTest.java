@@ -12,6 +12,7 @@ public final class CalculadorasDescontoTest {
         testaFrete(CalculadoraDescontoTradicional.class.getSimpleName(), new CalculadoraDescontoTradicional()::calcular);
         testaValoresInvalidos(CalculadoraDescontoTradicional.class.getSimpleName(), new CalculadoraDescontoTradicional()::calcular);
         testaRegra1TDD();
+        testaRegra2TDD();
         System.out.println("OK: " + verificacoes + " verificações");
     }
 
@@ -19,6 +20,14 @@ public final class CalculadorasDescontoTest {
         CalculadoraDescontoTDD calc = new CalculadoraDescontoTDD();
         eq("TDD regra 1 valor base", "200.00", calc.calcular(bd("200"), CategoriaCliente.PADRAO));
         testaValoresInvalidos("CalculadoraDescontoTDD", calc::calcular);
+    }
+
+    private static void testaRegra2TDD() {
+        CalculadoraDescontoTDD calc = new CalculadoraDescontoTDD();
+        eq("TDD regra 2 limite 500", "500.00", calc.calcular(bd("500"), CategoriaCliente.PADRAO));
+        eq("TDD regra 2 limite 500.01", "450.01", calc.calcular(bd("500.01"), CategoriaCliente.PADRAO));
+        eq("TDD regra 2 valor 600", "540.00", calc.calcular(bd("600"), CategoriaCliente.PADRAO));
+        eq("TDD regra 2 limite 1000", "900.00", calc.calcular(bd("1000"), CategoriaCliente.PADRAO));
     }
 
     private static void testaDescontosPorFaixa(String nome, Calculadora calc) {
