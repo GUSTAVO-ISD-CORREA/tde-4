@@ -21,7 +21,7 @@ javac -encoding UTF-8 -d out src/main/java/br/com/ecommerce/*.java src/test/java
 java -cp out br.com.ecommerce.CalculadorasDescontoTest
 ```
 
-Na execução final, a suíte informou `OK: 33 verificações`.
+Na execução final, a suíte informou `OK: 37 verificações`, incluindo total de itens nulo e categoria nula nas duas calculadoras.
 
 ## Regras e decisões
 

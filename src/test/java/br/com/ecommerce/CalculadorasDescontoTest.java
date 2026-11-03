@@ -24,6 +24,8 @@ public final class CalculadorasDescontoTest {
         eq("TDD regra 1 valor base", "200.00", calc.calcular(bd("200"), CategoriaCliente.PADRAO));
         invalid("TDD zero", () -> calc.calcular(bd("0"), CategoriaCliente.PADRAO));
         invalid("TDD negativo", () -> calc.calcular(bd("-1"), CategoriaCliente.PADRAO));
+        nullInvalid("TDD total nulo", () -> calc.calcular(null, CategoriaCliente.PADRAO));
+        nullInvalid("TDD categoria nula", () -> calc.calcular(bd("100"), null));
     }
 
     private static void testaRegra2TDD() {
@@ -82,6 +84,8 @@ public final class CalculadorasDescontoTest {
     private static void testaValoresInvalidosTradicional(CalculadoraDescontoTradicional calc) {
         invalid("Tradicional zero", () -> calc.calcular(bd("0"), CategoriaCliente.PADRAO));
         invalid("Tradicional negativo", () -> calc.calcular(bd("-1"), CategoriaCliente.PADRAO));
+        nullInvalid("Tradicional total nulo", () -> calc.calcular(null, CategoriaCliente.PADRAO));
+        nullInvalid("Tradicional categoria nula", () -> calc.calcular(bd("100"), null));
     }
 
     private static BigDecimal bd(String valor) { return new BigDecimal(valor); }
@@ -93,5 +97,11 @@ public final class CalculadorasDescontoTest {
         verificacoes++;
         try { acao.run(); } catch (IllegalArgumentException esperado) { return; }
         throw new AssertionError(caso + ": deveria lançar IllegalArgumentException");
+    }
+
+    private static void nullInvalid(String caso, Runnable acao) {
+        verificacoes++;
+        try { acao.run(); } catch (NullPointerException esperado) { return; }
+        throw new AssertionError(caso + ": deveria lançar NullPointerException");
     }
 }

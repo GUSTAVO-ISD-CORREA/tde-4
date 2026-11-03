@@ -20,7 +20,7 @@ javac -encoding UTF-8 -d out src/main/java/br/com/ecommerce/*.java src/test/java
 java -cp out br.com.ecommerce.CalculadorasDescontoTest
 ```
 
-A execução final da suíte registrou 33 verificações aprovadas.
+A execução final da suíte registrou 37 verificações aprovadas, incluindo entradas nulas para total de itens e categoria nas duas calculadoras.
 
 ## Etapa 1 — Tempo e dificuldades
 
