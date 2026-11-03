@@ -4,7 +4,7 @@
 
 A calculadora tradicional foi implementada antes de sua suíte. Depois, os testes foram escritos para confrontar o código com as regras e os casos de fronteira.
 
-**Tempo:** a duração original não foi cronometrada e não pode ser reconstruída de modo confiável. Não foi estimada retroativamente.
+**Tempo:** cerca de 35 minutos no total: 15 minutos para implementar a `CalculadoraDescontoTradicional` e 20 minutos para escrever, executar e ajustar os cenários de teste, conforme informado pelo aluno.
 
 **Dificuldades:** ao testar depois do código, há risco de escolher casos que confirmem a implementação em vez de questionar os requisitos. Foi necessário conferir os limites estritos (`> 500`, `> 1000`, `< 100`), a precedência dos descontos e o cálculo do frete após o desconto VIP. Valores `BigDecimal` foram comparados por valor, sem depender da escala.
 
