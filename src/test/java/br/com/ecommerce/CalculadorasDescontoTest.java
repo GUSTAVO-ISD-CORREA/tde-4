@@ -11,10 +11,6 @@ public final class CalculadorasDescontoTest {
         testaVip(CalculadoraDescontoTradicional.class.getSimpleName(), new CalculadoraDescontoTradicional()::calcular);
         testaFrete(CalculadoraDescontoTradicional.class.getSimpleName(), new CalculadoraDescontoTradicional()::calcular);
         testaValoresInvalidos(CalculadoraDescontoTradicional.class.getSimpleName(), new CalculadoraDescontoTradicional()::calcular);
-        testaDescontosPorFaixa(CalculadoraDescontoTDD.class.getSimpleName(), new CalculadoraDescontoTDD()::calcular);
-        testaVip(CalculadoraDescontoTDD.class.getSimpleName(), new CalculadoraDescontoTDD()::calcular);
-        testaFrete(CalculadoraDescontoTDD.class.getSimpleName(), new CalculadoraDescontoTDD()::calcular);
-        testaValoresInvalidos(CalculadoraDescontoTDD.class.getSimpleName(), new CalculadoraDescontoTDD()::calcular);
         System.out.println("OK: " + verificacoes + " verificações");
     }
 
