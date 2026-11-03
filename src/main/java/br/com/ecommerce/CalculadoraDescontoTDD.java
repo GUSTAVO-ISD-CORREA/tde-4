@@ -19,6 +19,9 @@ public class CalculadoraDescontoTDD {
                 && totalItens.compareTo(new BigDecimal("1000.00")) <= 0) {
             subtotal = totalItens.multiply(new BigDecimal("0.90"));
         }
+        if (categoria == CategoriaCliente.VIP) {
+            subtotal = subtotal.multiply(new BigDecimal("0.95"));
+        }
         return subtotal.setScale(2, RoundingMode.HALF_UP);
     }
 }
