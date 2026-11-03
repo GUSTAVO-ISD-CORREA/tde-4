@@ -15,6 +15,7 @@ public final class CalculadorasDescontoTest {
         testaRegra2TDD();
         testaRegra3TDD();
         testaRegra4TDD();
+        testaRegra5TDD();
         System.out.println("OK: " + verificacoes + " verificações");
     }
 
@@ -44,6 +45,14 @@ public final class CalculadorasDescontoTest {
         eq("TDD regra 4 VIP faixa 10 HALF_UP", "427.51", calc.calcular(bd("500.01"), CategoriaCliente.VIP));
         eq("TDD regra 4 VIP faixa 10", "855.00", calc.calcular(bd("1000"), CategoriaCliente.VIP));
         eq("TDD regra 4 VIP faixa 20", "836.00", calc.calcular(bd("1100"), CategoriaCliente.VIP));
+    }
+
+    private static void testaRegra5TDD() {
+        CalculadoraDescontoTDD calc = new CalculadoraDescontoTDD();
+        eq("TDD regra 5 frete padrão", "114.00", calc.calcular(bd("99"), CategoriaCliente.PADRAO));
+        eq("TDD regra 5 VIP 90", "100.50", calc.calcular(bd("90"), CategoriaCliente.VIP));
+        eq("TDD regra 5 limite sem frete", "100.00", calc.calcular(bd("100"), CategoriaCliente.PADRAO));
+        eq("TDD regra 5 subtotal abaixo de 100 após VIP", "114.75", calc.calcular(bd("105"), CategoriaCliente.VIP));
     }
 
     private static void testaDescontosPorFaixa(String nome, Calculadora calc) {
