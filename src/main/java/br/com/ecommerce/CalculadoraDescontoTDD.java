@@ -13,7 +13,9 @@ public class CalculadoraDescontoTDD {
             throw new IllegalArgumentException("O total dos itens deve ser positivo");
         }
         BigDecimal subtotal = totalItens;
-        if (totalItens.compareTo(new BigDecimal("500.00")) > 0
+        if (totalItens.compareTo(new BigDecimal("1000.00")) > 0) {
+            subtotal = totalItens.multiply(new BigDecimal("0.80"));
+        } else if (totalItens.compareTo(new BigDecimal("500.00")) > 0
                 && totalItens.compareTo(new BigDecimal("1000.00")) <= 0) {
             subtotal = totalItens.multiply(new BigDecimal("0.90"));
         }
