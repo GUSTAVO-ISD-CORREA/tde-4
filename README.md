@@ -21,3 +21,19 @@ java -cp out br.com.ecommerce.CalculadorasDescontoTest
 ```
 
 A execução final da suíte registrou 33 verificações aprovadas.
+
+## Etapa 1 — Tempo e dificuldades
+
+O tempo total foi de cerca de 35 minutos: 15 minutos para implementar a calculadora tradicional e 20 minutos para escrever, executar e ajustar a suíte de testes. A dificuldade foi moderada. A parte que exigiu mais atenção foi implementar a lógica, principalmente os limites estritos dos descontos e do frete, além da ordem entre desconto por faixa, desconto VIP e frete.
+
+## Etapa 3 — Reflexão
+
+### Quando ocorreram verificação e validação?
+
+Na abordagem tradicional, a verificação dinâmica ocorreu depois da implementação, com a execução dos testes e a comparação dos resultados com os valores esperados. A validação ocorreu ao conferir se os cenários de teste representavam as necessidades de cobrança descritas no enunciado.
+
+No TDD, a verificação dinâmica ocorreu em cada ciclo: o teste falhou antes da implementação (RED), passou após a mudança (GREEN) e foi executado novamente depois da refatoração. A validação foi apoiada por cenários derivados das regras de negócio. Em ambas as abordagens, analisar os requisitos e conferir os limites também faz parte da verificação estática.
+
+### Como a inversão da ordem dos testes afeta a verificação estática e dinâmica?
+
+Escrever os testes antes do código leva o desenvolvedor a analisar requisitos, limites e resultados esperados antes de implementar cada regra. Isso fortalece a verificação estática. Na verificação dinâmica, executar os testes a cada ciclo dá retorno frequente e ajuda a encontrar falhas mais cedo. O TDD complementa a análise dos requisitos, mas não a substitui.
